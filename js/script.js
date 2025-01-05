@@ -13,4 +13,14 @@ window.addEventListener("load", () => {
       menu.classList.add("menu__active");
     }
   });
+
+  try {
+    new Swiper(".testimonials-slider", {
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      }
+    });
+  } catch {}
 });
