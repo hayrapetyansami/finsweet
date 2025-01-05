@@ -743,5 +743,56 @@ main {
         }
       }
     }
+
+    &.why__we__started {
+      position: relative;
+
+      .wws__cover {
+        max-width: 949px;
+        height: 705px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: start center;
+        }
+      }
+
+      .wws__content {
+        max-width: 706px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: var(--white);
+        padding: 64px;
+
+        h5 {
+          font-size: 16px;
+          text-transform: uppercase;
+        }
+
+        h2 {
+          font-size: 48px;
+          margin-top: 24px;
+          margin-bottom: 16px;
+        }
+
+        p {
+          margin-bottom: 32px;
+          color: var(--mediumGray);
+          line-height: 28px;
+        }
+
+        @media screen and (max-width: 768px) {
+          padding: 32px;
+
+          h2 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
   }
 }
