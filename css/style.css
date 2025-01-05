@@ -563,3 +563,80 @@ header {
     }
   }
 }
+
+main {
+  .container {
+    &.index__first__block {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      padding-top: 128px;
+      padding-bottom: 128px;
+
+      .featured__post {
+        flex: 1 1 733px;
+
+        h2 {
+          font-size: 36px;
+          margin-top: 0;
+          margin-bottom: 32px;
+        }
+
+        .featured__post-wrapper {
+          padding: 32px;
+          border: 1px solid var(--lightGray);
+
+          .featured__post-cover {
+            max-width: 669px;
+            max-height: 352px;
+            overflow: hidden;
+            margin-bottom: 32px;
+
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center center;
+            }
+          }
+
+          p {
+            color: var(--mediumGray);
+            margin-bottom: 32px;
+          }
+        }
+      }
+
+      .all__posts {
+        flex: 1 1 517px;
+
+        h2 {
+          font-size: 36px;
+          margin-top: 0;
+          margin-bottom: 32px;
+        }
+
+        .all__posts-items {
+          .all__posts-item {
+            .post__title__date__author {
+              padding: 23px 32px;
+
+              h4 {
+                font-size: 24px;
+              }
+            }
+
+            &:nth-child(2) {
+              background: var(--lightYellow);
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
