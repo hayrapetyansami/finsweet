@@ -920,5 +920,29 @@ main {
         padding-bottom: 64px;
       }
     }
+
+    &.partners__logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+
+      .parnter__logo {
+        flex: 180px;
+
+        img {
+          display: block;
+          width: 70%;
+        }
+
+        @media screen and (max-width: 768px) {
+          flex: 1 1 100%;
+          img {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
   }
 }
