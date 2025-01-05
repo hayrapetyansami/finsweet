@@ -244,6 +244,11 @@ template {
   src: url("../fonts/Inter-Light.ttf");
 }
 
+body {
+  font-family: "inter-regular", serif;
+  color: var(--black);
+}
+
 h1,
 h2,
 h3,
@@ -253,9 +258,52 @@ h6 {
   font-family: "sen-bold", serif;
 }
 
-body {
-  font-family: "inter-regular", serif;
-  color: var(--black);
+h1 {
+  font-size: 48px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  font-size: 28px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+h4 {
+  font-size: 24px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+h5 {
+  font-size: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+h6 {
+  font-size: 16px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .btn {
@@ -269,10 +317,27 @@ body {
   font-size: 18px;
   font-family: "sen-bold", serif;
   border: none;
+  transition: background 0.2s ease-in;
 
   &.white {
     background: var(--white);
   }
+
+  &:hover {
+    background: var(--lightYellow);
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
+
+.text {
+  font-size: 16px;
+  margin-bottom: 32px;
+  color: var(--mediumGray);
+  line-height: 28px;
 }
 
 .post__title__date__author {
@@ -325,72 +390,70 @@ nav {
       gap: 32px;
 
       .nav__block-menu {
-        .mobile__menu-btn {
-          &#burger-menu {
-            display: none;
-            cursor: pointer;
-            height: 27px;
+        #burger-menu {
+          display: none;
+          cursor: pointer;
+          height: 27px;
+          width: 27px;
+          overflow: visible;
+          position: relative;
+          z-index: 2;
+          background: none;
+          border: none;
+      
+          span,
+          span:before,
+          span:after {
+            background: #fff;
+            display: block;
+            height: 2px;
+            opacity: 1;
+            position: absolute;
+            transition: 0.3s ease-in-out;
+          }
+      
+          span:before,
+          span:after {
+            content: '';
+          }
+      
+          span:before {
+            left: 0px;
+            top: -10px;
             width: 27px;
-            overflow: visible;
-            position: relative;
-            z-index: 2;
-            background: none;
-            border: none;
-
-            span,
-            span:before,
-            span:after {
-              background: #fff;
-              display: block;
-              height: 2px;
-              opacity: 1;
-              position: absolute;
-              transition: 0.3s ease-in-out;
-            }
-
-            span:before,
-            span:after {
-              content: '';
-            }
-
+          }
+      
+          span {
+            right: 0px;
+            top: 13px;
+            width: 27px;
+          }
+      
+          span:after {
+            left: 0px;
+            top: 10px;
+            width: 27px;
+          }
+      
+          &.active {
             span:before {
-              left: 0px;
-              top: -10px;
+              top: 0px;
+              transform: rotate(90deg);
               width: 27px;
             }
-
+      
             span {
-              right: 0px;
+              transform: rotate(-45deg);
               top: 13px;
               width: 27px;
             }
-
+      
             span:after {
-              left: 0px;
-              top: 10px;
-              width: 27px;
-            }
-
-            &.active {
-              span:before {
-                top: 0px;
-                transform: rotate(90deg);
-                width: 27px;
-              }
-
-              span {
-                transform: rotate(-45deg);
-                top: 13px;
-                width: 27px;
-              }
-
-              span:after {
-                top: 0px;
-                left: 0;
-                transform: rotate(90deg);
-                opacity: 0;
-                width: 0;
-              }
+              top: 0px;
+              left: 0;
+              transform: rotate(90deg);
+              opacity: 0;
+              width: 0;
             }
           }
         }
@@ -412,7 +475,7 @@ nav {
               transition: color .2s ease-in;
 
               &:hover {
-                color: orangered
+                color: var(--yellow)
               }
             }
           }
@@ -423,10 +486,8 @@ nav {
     @media screen and (max-width: 768px) {
       .nav__block {
         .nav__block-menu {
-          .mobile__menu-btn {
-            &#burger-menu {
-              display: block;
-            }
+          #burger-menu {
+            display: block;
           }
 
           .menu {
@@ -577,7 +638,6 @@ main {
         flex: 1 1 733px;
 
         h2 {
-          font-size: 36px;
           margin-top: 0;
           margin-bottom: 32px;
         }
@@ -600,11 +660,6 @@ main {
               object-position: center center;
             }
           }
-
-          p {
-            color: var(--mediumGray);
-            margin-bottom: 32px;
-          }
         }
       }
 
@@ -612,7 +667,6 @@ main {
         flex: 1 1 517px;
 
         h2 {
-          font-size: 36px;
           margin-top: 0;
           margin-bottom: 32px;
         }
@@ -621,10 +675,6 @@ main {
           .all__posts-item {
             .post__title__date__author {
               padding: 23px 32px;
-
-              h4 {
-                font-size: 24px;
-              }
             }
 
             &:nth-child(2) {
@@ -636,6 +686,11 @@ main {
 
       @media screen and (max-width: 768px) {
         flex-wrap: wrap;
+        padding-top: 64px;
+        padding-bottom: 64px;
+        h2 {
+          text-align: center;
+        }
       }
     }
 
@@ -673,6 +728,18 @@ main {
         .isb__left,
         .isb__right {
           flex: 1;
+
+          h5 {
+            margin-bottom: 24px;
+            margin-top: 0;
+          }
+          h2, h3 {
+            margin-bottom: 16px;
+            margin-top: 0;
+          }
+          a {
+            color: var(--purple)
+          }
         }
 
         @media screen and (max-width: 768px) {
@@ -694,7 +761,6 @@ main {
       h2 {
         text-align: center;
         margin: 0;
-        font-size: 36px;
       }
 
       .global__category-items {
@@ -719,14 +785,8 @@ main {
           }
 
           h3 {
-            font-size: 28px;
             margin-top: 16px;
             margin-bottom: 4px;
-          }
-
-          p {
-            color: var(--mediumGray);
-            line-height: 28px;
           }
         }
 
@@ -741,6 +801,11 @@ main {
             flex: 1 1 100%;
           }
         }
+      }
+
+      @media screen and (max-width: 768px) {
+        padding-top: 64px;
+        padding-bottom: 64px;
       }
     }
 
@@ -769,28 +834,16 @@ main {
         padding: 64px;
 
         h5 {
-          font-size: 16px;
           text-transform: uppercase;
         }
 
         h2 {
-          font-size: 48px;
           margin-top: 24px;
           margin-bottom: 16px;
         }
 
-        p {
-          margin-bottom: 32px;
-          color: var(--mediumGray);
-          line-height: 28px;
-        }
-
         @media screen and (max-width: 768px) {
           padding: 32px;
-
-          h2 {
-            font-size: 24px;
-          }
         }
       }
     }
@@ -800,7 +853,6 @@ main {
       padding-bottom: 128px;
 
       h2 {
-        font-size: 32px;
         text-align: center;
         margin-bottom: 48px;
         margin-top: 0;
@@ -827,7 +879,6 @@ main {
             border-radius: 100%;
             overflow: hidden;
             margin: 0px auto 20px auto;
-            ;
 
             img {
               width: 100%;
@@ -838,7 +889,6 @@ main {
           }
 
           h3 {
-            font-size: 28px;
             margin: 0;
           }
 
@@ -863,6 +913,11 @@ main {
             }
           }
         }
+      }
+
+      @media screen and (max-width: 768px) {
+        padding-top: 64px;
+        padding-bottom: 64px;
       }
     }
   }

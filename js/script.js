@@ -1,7 +1,7 @@
 "use strict";
 
 window.addEventListener("load", () => {
-  const mobileMenuBtn = document.querySelector(".mobile__menu-btn");
+  const mobileMenuBtn = document.querySelector("#burger-menu");
   const menu = document.querySelector(".menu");
 
   mobileMenuBtn.addEventListener("click", function () {
