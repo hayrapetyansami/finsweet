@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block blog %}
+  <header class="blog__header">
+    <div class="container">
+      <div class="bh__left">
+        <h5>Featured Post</h5>
+        <h2>Step-by-step guide to choosing great font pairs</h2>
+        <div class="pda">
+          <p>by</p>
+          <a href="#">John Smith</a>
+          <span>|</span>
+          <p>May 23, 2022</p>
+        </div>
+        <p class="text">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          occaecat cupidatat non proident.
+        </p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <div class="bh__right">
+        <img src="img/blog_header.png" alt="blog_header">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container blog__page offset">
+      <h1>All Posts</h1>
+
+      <div class="blog__page__posts">
+        {% for post in posts %}
+        <div class="blog__page__post">
+          <div class="bpp__cover">
+            {% if post.image %}
+              <img src="{{post.image.url}}" alt="{{post.title}}">
+            {% else %}
+              <img
+                src="https://img.freepik.com/premium-vector/no-photo-available-vector-icon-default-image-symbol-picture-coming-soon-web-site-mobile-app_87543-18055.jpg"
+                alt="{{post.title}}">
+            {% endif %}
+          </div>
+          <div class="bpp__content">
+            <p class="category">{{post.category.name}}</p>
+            <h2>
+              <a href="{{post.get_absolute_url}}">
+                {{post.title}}
+              </a>
+            </h2>
+            <p class="text">
+              {{post.content|truncatechars:200}}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="container global__category offset">
+      <h2>All Categories</h2>
+      <div class="global__category-items">
+        {% for cat in categories %}
+        <div class="global__category-item">
+          <div class="gc__icon">
+            <img src="{{cat.image.url}}" alt="icon">
+          </div>
+          <h3>{{cat.name}}</h3>
+          <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="join">
+      <h2>
+        Join our team to be a part of our story
+      </h2>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+      </p>
+      <button class="btn">Join Now</button>
+    </div>
+  </main>
+{% endblock  %}

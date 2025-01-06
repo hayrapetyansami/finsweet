@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block single %}
+  <header class="single__header">
+    <div class="single__wrapper">
+      <div class="single__author">
+        <div class="sa__cover">
+          <img src="{{author.image.url}}" alt="{{author.name}}">
+        </div>
+        <div class="sa__content">
+          <h3>
+            <a href="#">{{author.name}}</a>
+          </h3>
+          <p class="text">Posted on {{created_date|date:"M d, Y"}}</p>
+        </div>
+      </div>
+      <div class="single__title">
+        <h1>{{title}}</h1>
+      </div>
+      <div class="single__category">
+        <a href="#">{{category}}</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container offset single__page">
+      {% if image  %}
+        <div class="single__cover">
+          <img src="{{image.url}}" alt="">
+        </div>
+      {% endif %}
+      <article style="margin-top: 48px">
+        {{content|linebreaksbr}}
+      </article>
+    </div>
+
+    <div class="join">
+      <h2>
+        Join our team to be a part of our story
+      </h2>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+      </p>
+      <button class="btn">Join Now</button>
+    </div>
+  </main>
+{% endblock %}
